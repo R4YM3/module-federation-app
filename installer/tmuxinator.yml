@@ -1,0 +1,50 @@
+name: module-federation-app
+root: ~/Development/hetwebbureau/module-federation-app
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+
+windows:
+  - host:
+      pre: cd ~/Development/hetwebbureau/module-federation-app/host
+      layout: main-vertical
+      panes:
+        - left:
+            - vim
+        - right:
+            - npm install && npm run start:live
+            - git status
+            - clear
+
+  - remote:
+      pre: cd ~/Development/hetwebbureau/module-federation-app/remote
+      layout: main-vertical
+      panes:
+        - left:
+            - vim
+        - right:
+            - npm install && npm run start:live
+            - git status
+            - clear
+
+  - root:
+      pre: cd ~/Development/hetwebbureau/module-federation-app
+      layout: main-vertical
+      panes:
+        - left:
+            - vim
+        - right:
+            - git status
+            - clear
+            - clear
