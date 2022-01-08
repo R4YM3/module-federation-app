@@ -18,7 +18,7 @@ function print_main_menu {
 }
 
 function install {
-  cp ./aliases.sh ~/.config/zsh/aliases/module-federation-app.sh
+  cp ./aliases.sh ~/.config/aliases/module-federation-app.sh
   cp ./tmuxinator.yml ~/.config/tmuxinator/module-federation-app.yml
 }
 
